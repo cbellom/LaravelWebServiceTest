@@ -14,11 +14,11 @@ class ProcessesController extends Controller
      */
     public function index()
     {
-        $process = \App\Models\ProcessesModel::get();
-        $servicios = \App\Models\WebServiceModel::get();
+        $processes = \App\Models\ProcessesModel::get();
+
         return response()->json([
-            "processes" =>  $process->toArray(),
-            "services" =>  $servicios->toArray(),
+            "processes" =>  $processes->toArray(),
+
         ],200
         );
     }

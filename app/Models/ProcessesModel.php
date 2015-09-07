@@ -18,7 +18,7 @@ class ProcessesModel extends Model
      *
      * @var array
      */
-    protected $fillable = ['id','name','description','schedule','cost','additionalInformation','requisitesURL','legislationURL','entity','responseTime','pointsOfService'];
+    protected $fillable = ['name'];
 
     /**
      * The attributes excluded from the model's JSON form.
