@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use \App\Models\ProcessesModel;
 
 class ProcessesController extends Controller
 {
@@ -16,46 +17,19 @@ class ProcessesController extends Controller
     {
         $processes = \App\Models\ProcessesModel::get();
 
+        foreach ($processes as $process) {
+            $process->entity = explode( ',', $process->entity );
+            $process->pointsOfService = explode( ',', $process->pointsOfService );
+        }
         return response()->json([
-            "processes" =>  $processes->toArray(),
-
+            "processes"=>$processes,
         ],200
         );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
+     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -89,3 +63,4 @@ class ProcessesController extends Controller
         //
     }
 }
+

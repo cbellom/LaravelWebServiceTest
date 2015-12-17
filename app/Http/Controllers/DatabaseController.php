@@ -17,11 +17,18 @@ class DatabaseController extends Controller
         $processes = \App\Models\ProcessesModel::get();
         $entities = \App\Models\EntitiesModel::get();
         $servicePoints = \App\Models\ServicePointsModel::get();
+
+        $processes->toArray();
+        $entities->toArray();
+        $servicePoints->toArray();
+
         return response()->json([
-           "processes" => $processes->toArray(),
-           "entities" =>  $entities->toArray(),
-           "servicePoints" =>  $servicePoints->toArray(),
+
+            "processes"=>$processes,
+            "entities"=>$entities,
+            "servicePoints"=>$servicePoints,
         ],200
+
         );
     }
 

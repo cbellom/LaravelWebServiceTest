@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class EntitiesController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +14,9 @@ class EntitiesController extends Controller
      */
     public function index()
     {
-
-        $entities = \App\Models\EntitiesModel::get();
-        foreach ($entities as $entity) {
-            $entity->processes = explode( ',', $entity->processes );
-            $entity->pointsOfService = explode( ',', $entity->pointsOfService );
-        }
+        $categories = \App\Models\CategoriesModel::get();
         return response()->json([
-            "entities"=>$entities,
+            "categories" =>  $categories->toArray(),
         ],200
         );
     }

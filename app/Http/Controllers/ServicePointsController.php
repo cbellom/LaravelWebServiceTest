@@ -15,8 +15,12 @@ class ServicePointsController extends Controller
     public function index()
     {
         $servicePoints = \App\Models\ServicePointsModel::get();
+        foreach ($servicePoints as $servicePoint) {
+            $servicePoint->processes = explode( ',', $servicePoint->processes);
+        }
+
         return response()->json([
-            "servicePoints" =>  $servicePoints->toArray(),
+            "servicePoints"=>$servicePoints->toArray(),
         ],200
         );
     }

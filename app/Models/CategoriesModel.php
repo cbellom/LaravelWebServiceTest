@@ -4,21 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EntitiesModel extends Model
+class CategoriesModel extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'entities';
+    protected $table = 'categories';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['long_name','short_name','id','description','phone','homepage','processes','pointsOfServices'];
+    protected $fillable = ['name','id'];
 
     /**
      * The attributes excluded from the model's JSON form.

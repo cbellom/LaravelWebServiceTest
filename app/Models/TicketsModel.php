@@ -4,26 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EntitiesModel extends Model
+class TicketsModel extends Model
 {
+    protected $connection = 'pgsql_external';
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'entities';
+    protected $table = 'tickets';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['long_name','short_name','id','description','phone','homepage','processes','pointsOfServices'];
+    protected $fillable = ['num_id','fecha_solicitud'];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = [];
+    protected $hidden = ['id_sat_turnos','tip_id','id_sat_sedes','id_sat_categorias','id_sat_atriles','identificacion','turno','virtual','id_tipo_purga'];
 }

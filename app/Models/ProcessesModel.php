@@ -11,6 +11,7 @@ class ProcessesModel extends Model
      *
      * @var string
      */
+    public $timestamps = false;
     protected $table = 'processes';
 
     /**
@@ -18,7 +19,10 @@ class ProcessesModel extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+
+
+    protected $fillable = ['id','name','description','url','cost','schedule','additionalInformation','requisitesURL','legislationURL','entity','responseTime','pointsOfService','idCategory','categoryName'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.

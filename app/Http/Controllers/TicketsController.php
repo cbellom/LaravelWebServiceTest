@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class EntitiesController extends Controller
+class TicketsController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,14 +17,14 @@ class EntitiesController extends Controller
     public function index()
     {
 
-        $entities = \App\Models\EntitiesModel::get();
-        foreach ($entities as $entity) {
-            $entity->processes = explode( ',', $entity->processes );
-            $entity->pointsOfService = explode( ',', $entity->pointsOfService );
-        }
+        $tickets = \App\Models\TicketsModel::get();
+
+        $tickets->toArray();
+
         return response()->json([
-            "entities"=>$entities,
+            "tickets"=>$tickets,
         ],200
+
         );
     }
 

@@ -18,7 +18,7 @@ class ServicePointsModel extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name','id','localization_lat','localization_lon','processes'];
 
     /**
      * The attributes excluded from the model's JSON form.
